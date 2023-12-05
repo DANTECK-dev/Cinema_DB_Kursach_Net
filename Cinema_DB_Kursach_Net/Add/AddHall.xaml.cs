@@ -19,9 +19,51 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddHall : Window
     {
+        cinema_DBEntities entities;
+        int selected = -1;
+
         public AddHall()
         {
             InitializeComponent();
+            entities = new cinema_DBEntities();
+            Cinema_CB.ItemsSource = (new cinema_DBEntities()).Cinemas.ToList();
+        }
+        private void Change(object sender = null, TextChangedEventArgs e = null)
+        {
+            if (Status != null)
+                Status.Content = "";
+        }
+
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                Hall table = new Hall();
+
+                table.name = Name_TB.Text;
+                table.type = Type_TB.Text;
+                table.capacity = int.Parse(Capacity_TB.Text);
+                table.id_cinema = selected;
+
+                entities.Halls.Add(table);
+                entities.SaveChanges();
+                Status.Content = "Запись успешно добавлена";
+
+            }
+            catch (Exception ex)
+            {
+                Status.Content = "";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Cinema_CB_DropDownClosed(object sender, EventArgs e)
+        {
+            Change();
+            selected = -1;
+            if (Cinema_CB.SelectedIndex == -1) return;
+            selected = ((Cinema)Cinema_CB.SelectedItem).id;
         }
     }
 }

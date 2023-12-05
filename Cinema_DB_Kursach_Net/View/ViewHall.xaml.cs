@@ -22,6 +22,7 @@ namespace Cinema_DB_Kursach_Net
         public ViewHall()
         {
             InitializeComponent();
+            _DataGrid.ItemsSource = (new cinema_DBEntities()).Halls.ToList();
         }
     }
 }

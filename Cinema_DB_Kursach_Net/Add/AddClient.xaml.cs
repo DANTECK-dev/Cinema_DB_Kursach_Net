@@ -23,5 +23,33 @@ namespace Cinema_DB_Kursach_Net
         {
             InitializeComponent();
         }
+        private void Change(object sender, TextChangedEventArgs e)
+        {
+            if (Status != null)
+                Status.Content = "";
+        }
+
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                cinema_DBEntities entities = new cinema_DBEntities();
+                Client table = new Client();
+
+                table.name = Name_TB.Text;
+                table.surname = Surname_TB.Text;
+                table.contact = Contact_TB.Text;
+
+                entities.Clients.Add(table);
+                entities.SaveChanges();
+                Status.Content = "Запись успешно добавлена";
+
+            }
+            catch (Exception ex)
+            {
+                Status.Content = "";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

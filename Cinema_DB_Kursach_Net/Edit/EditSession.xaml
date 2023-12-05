@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="EditSession" Height="450" Width="800">
+        Title="Редактирокание Сеанса" Height="450" Width="800">
     <Grid>
         
     </Grid>

@@ -19,9 +19,60 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddSession : Window
     {
+        cinema_DBEntities entities;
+        int selected_hall = -1;
+        int selected_film = -1;
+
         public AddSession()
         {
             InitializeComponent();
+            entities = new cinema_DBEntities();
+            Hall_CB.ItemsSource = (new cinema_DBEntities()).Halls.ToList();
+            Film_CB.ItemsSource = (new cinema_DBEntities()).Films.ToList();
+
+            Date_TB.Text = DateTime.Now.ToString();
+        }
+        private void Change(object sender = null, TextChangedEventArgs e = null)
+        {
+            if (Status != null)
+                Status.Content = "";
+        }
+
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Session table = new Session();
+
+                table.date = DateTime.Parse(Date_TB.Text);
+                table.duration = int.Parse(Duration_TB.Text);
+                table.id_hall = selected_hall;
+                table.id_film = selected_film;
+
+                entities.Sessions.Add(table);
+                entities.SaveChanges();
+                Status.Content = "Запись успешно добавлена";
+
+            }
+            catch (Exception ex)
+            {
+                Status.Content = "";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Hall_CB_DropDownClosed(object sender, EventArgs e)
+        {
+            Change();
+            selected_hall = -1;
+            if (Hall_CB.SelectedIndex == -1) return;
+            selected_hall = ((Hall)Hall_CB.SelectedItem).id;
+        }
+        private void Film_CB_DropDownClosed(object sender, EventArgs e)
+        {
+            Change();
+            selected_film = -1;
+            if (Film_CB.SelectedIndex == -1) return;
+            selected_film = ((Film)Film_CB.SelectedItem).id;
         }
     }
 }

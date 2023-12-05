@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="AddFilm" Height="450" Width="800">
+        Title="Добавление Фильма" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Добавление фильма" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" 
+               Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+
+        <Label Content="Название:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <TextBox Name="Name_TB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Content="Жанры:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="Genre_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Content="Страна производитель:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="Country_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
         
+        <Label Content="Возрастной рейтинг:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+        <TextBox Name="Age_Rating_TB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Добавить" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="20" Click="Click"/>
     </Grid>
 </Window>

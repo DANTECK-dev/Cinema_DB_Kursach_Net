@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="ViewHall" Height="450" Width="800">
+        Title="Просмотр Залов" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True" Name="_DataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"             Width="30"  Binding="{Binding id}"/>
+                <DataGridTextColumn Header="Название"       Width="*"   Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Тип"            Width="*"   Binding="{Binding type}"/>
+                <DataGridTextColumn Header="Вместимость"    Width="*"   Binding="{Binding capacity}"/>
+                <DataGridTextColumn Header="ID Кинотеатра"  Width="*"   Binding="{Binding id_cinema}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

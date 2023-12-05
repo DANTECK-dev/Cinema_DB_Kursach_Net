@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="ViewStaff" Height="450" Width="800">
+        Title="Просмотр Сотрудников" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True" Name="_DataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"             Width="30"  Binding="{Binding id}"/>
+                <DataGridTextColumn Header="Имя"            Width="*"   Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Фамилия"        Width="*"   Binding="{Binding surname}"/>
+                <DataGridTextColumn Header="Должность"      Width="*"   Binding="{Binding post}"/>
+                <DataGridTextColumn Header="Контакты"       Width="*"   Binding="{Binding contact}"/>
+                <DataGridTextColumn Header="ID Кинотеатра"  Width="*"   Binding="{Binding id_cinema}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

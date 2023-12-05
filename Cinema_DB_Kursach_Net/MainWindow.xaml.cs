@@ -34,32 +34,32 @@ namespace Cinema_DB_Kursach_Net
         }
         private void OpenViewClient(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewClient window = new ViewClient();
             window.Show();
         }
         private void OpenViewFilm(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewFilm window = new ViewFilm();
             window.Show();
         }
         private void OpenViewHall(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewHall window = new ViewHall();
             window.Show();
         }
         private void OpenViewSession(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewSession window = new ViewSession();
             window.Show();
         }
         private void OpenViewStaff(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewStaff window = new ViewStaff();
             window.Show();
         }
         private void OpenViewTicket(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            ViewTicket window = new ViewTicket();
             window.Show();
         }
 
@@ -67,32 +67,32 @@ namespace Cinema_DB_Kursach_Net
         //EDIT
         private void OpenEditClient(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditClient window = new EditClient();
             window.Show();
         }
         private void OpenEditFilm(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditFilm window = new EditFilm();
             window.Show();
         }
         private void OpenEditHall(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditHall window = new EditHall();
             window.Show();
         }
         private void OpenEditSession(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditSession window = new EditSession();
             window.Show();
         }
         private void OpenEditStaff(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditStaff window = new EditStaff();
             window.Show();
         }
         private void OpenEditTicket(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            EditTicket window = new EditTicket();
             window.Show();
         }
 
@@ -100,32 +100,32 @@ namespace Cinema_DB_Kursach_Net
         // ADD
         private void OpenAddClient(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddClient window = new AddClient();
             window.Show();
         }
         private void OpenAddFilm(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddFilm window = new AddFilm();
             window.Show();
         }
         private void OpenAddHall(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddHall window = new AddHall();
             window.Show();
         }
         private void OpenAddSession(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddSession window = new AddSession();
             window.Show();
         }
         private void OpenAddStaff(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddStaff window = new AddStaff();
             window.Show();
         }
         private void OpenAddTicket(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            AddTicket window = new AddTicket();
             window.Show();
         }
 
@@ -133,32 +133,32 @@ namespace Cinema_DB_Kursach_Net
         // DEL
         private void OpenDelClient(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelClient window = new DelClient();
             window.Show();
         }
         private void OpenDelFilm(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelFilm window = new DelFilm();
             window.Show();
         }
         private void OpenDelHall(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelHall window = new DelHall();
             window.Show();
         }
         private void OpenDelSession(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelSession window = new DelSession();
             window.Show();
         }
         private void OpenDelStaff(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelStaff window = new DelStaff();
             window.Show();
         }
         private void OpenDelTicket(object sender, RoutedEventArgs e)
         {
-            Window window = new Window();
+            DelTicket window = new DelTicket();
             window.Show();
         }
     }
