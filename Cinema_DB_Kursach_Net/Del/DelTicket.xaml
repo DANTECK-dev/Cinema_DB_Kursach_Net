@@ -7,6 +7,43 @@
         mc:Ignorable="d"
         Title="Удалить Билет" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Удаление билета" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+
+        <Label Content="ID:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox Name="ID_CB" DisplayMemberPath="id" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="ID_CB_DropDownClosed"/>
+
+        <Label Content="Стоимость:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="Price_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Статус:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="Status_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Сеанс:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+        <TextBox Name="Session_TB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
+        <TextBox Name="Client_TB" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Удалить" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="20" Click="Click"/>
     </Grid>
 </Window>

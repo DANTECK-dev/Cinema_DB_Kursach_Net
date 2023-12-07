@@ -19,9 +19,45 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class DelClient : Window
     {
+        cinema_DBEntities _entities;
         public DelClient()
         {
             InitializeComponent();
+            _entities = new cinema_DBEntities();       // вытаскиваем всю БД
+            Client_CB.ItemsSource = _entities.Clients.ToList();      // вытаскиваем список клиентов из БД
+        }
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            Status.Content = "";      // очищение текста статуса исполнения запроса
+
+            try
+            {
+                _entities.Clients.Remove(((Client)(Client_CB.SelectedItem)));       // удаление клиента из БД
+                _entities.SaveChanges();     // сохраняем изменения в БД
+
+                // очищение полей от удаленого пользователя
+                Client_CB.SelectedItem = null;
+                ID_TB.Text = "";
+                Contact_TB.Text = "";
+
+                Status.Content = "Запись успешно удалена";        // выводим текст об успешном выполнении запроса
+                Client_CB.ItemsSource = _entities.Clients.ToList();      // обновляем список клиентов
+            }
+            catch (Exception ex)        // обработка ошибок
+            {
+                Status.Content = "";      // очищение текста статуса исполнения запроса
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Client_CB_DropDownClosed(object sender, EventArgs e)
+        {
+            Status.Content = "";      // очищение текста статуса исполнения запроса
+            if (Client_CB.SelectedItem == null) return;
+
+            // обновляем данные в полях если выбран другой пользователь
+            ID_TB.Text = ((Client)(Client_CB.SelectedItem)).id.ToString();
+            Contact_TB.Text = ((Client)(Client_CB.SelectedItem)).contact;
         }
     }
 }

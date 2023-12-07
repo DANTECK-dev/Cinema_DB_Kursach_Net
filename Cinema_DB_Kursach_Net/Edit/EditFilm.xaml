@@ -7,6 +7,56 @@
         mc:Ignorable="d"
         Title="Редактирование Фильма" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Редактирование фильма" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+
+        <Label Content="Название:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox Name="Name_CB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Film_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="100" Text="{Binding Path=name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="ID:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="ID_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Название:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="Name_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Content="Жанры:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+        <TextBox Name="Genre_TB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Content="Страны:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
+        <TextBox Name="Country_TB" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Content="Возрастной рейтинг:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
+        <TextBox Name="Age_Rating_TB" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+
+        <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Изменить" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="20" Click="Click"/>
     </Grid>
 </Window>

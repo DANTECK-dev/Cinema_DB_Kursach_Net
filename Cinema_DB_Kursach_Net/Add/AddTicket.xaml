@@ -47,6 +47,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
                         <TextBlock Width="50" Text="{Binding Path=name}" />
                         <TextBlock Width="50" Text="{Binding Path=surname}" />
                     </StackPanel>

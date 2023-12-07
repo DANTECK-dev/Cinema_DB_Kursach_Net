@@ -29,7 +29,7 @@
                Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
 
         <Label Content="Имя:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-        <xctk:MaskedTextBox Name="Name_TB" Mask="00\.00\.0000 00:00:00" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+        <xctk:MaskedTextBox Name="Name_TB" Mask="00\.00\.0000" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
 
         <Label Content="Фамилия:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="Surname_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>

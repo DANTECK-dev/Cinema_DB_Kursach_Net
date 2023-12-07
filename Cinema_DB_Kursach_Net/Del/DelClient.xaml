@@ -7,6 +7,45 @@
         mc:Ignorable="d"
         Title="Удалить Клиента" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Удаление клиента" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+
+        <Label Content="Имя фамилия:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox Name="Client_CB" SelectedValuePath="id" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=name}" />
+                        <TextBlock Width="50" Text="{Binding Path=surname}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="ID Клиента:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="ID_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Контакты:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="Contact_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Удалить" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="20" Click="Click"/>
     </Grid>
 </Window>

@@ -7,6 +7,67 @@
         mc:Ignorable="d"
         Title="Редактирование Билета" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Редактирование билета" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
+
+        <Label Content="Фильм дата:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox Name="Name_CB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Name_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="100" Text="{Binding Path=film_name}" />
+                        <TextBlock Width="100" Text="{Binding Path=date}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="ID:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="ID_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+
+        <Label Content="Стоимость:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="Price_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
         
+        <Label Content="Статус:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+        <Label Name="Status_L" FontWeight="Bold" Content="" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
+
+        <Label Content="Сеанс:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
+        <ComboBox Name="Session_CB" SelectedValuePath="id" DisplayMemberPath="date" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Session_CB_DropDownClosed"/>
+
+        <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
+        <ComboBox Name="Client_CB" SelectedValuePath="id" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="50" Text="{Binding Path=name}" />
+                        <TextBlock Width="50" Text="{Binding Path=surname}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <Button Content="Изменить" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="20" Click="Click"/>
     </Grid>
 </Window>
