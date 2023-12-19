@@ -41,6 +41,13 @@
                 <MenuItem Header="Персонал"     Click="OpenDelStaff"/>
                 <MenuItem Header="Билеты"       Click="OpenDelTicket"/>
             </MenuItem>
+            <MenuItem Header="Запросы">
+                <MenuItem Header="Сеансы фильма"        Click="OpenFilmSessions"    ToolTip="Поиск всех сеансов по названию фильма"/>
+                <MenuItem Header="Продажи за период"    Click="OpenRevenue"         ToolTip="Сумма выручки за определенный период"/>
+                <MenuItem Header="Все билеты"           Click="OpenFullTicket"      ToolTip="Вся информация о билетах"/>
+                <MenuItem Header="Все сеансы"           Click="OpenFullSession"     ToolTip="Вся информация о сеансах"/>
+                <MenuItem Header="Фильмы сеансы залы"   Click="OpenFilmSessionHall" ToolTip="Информация о фильмах, сеансах и залах"/>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

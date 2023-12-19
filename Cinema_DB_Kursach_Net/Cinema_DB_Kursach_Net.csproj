@@ -98,10 +98,10 @@
       <DependentUpon>AddTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cinema.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Del\DelClient.xaml.cs">
       <DependentUpon>DelClient.xaml</DependentUpon>
@@ -140,34 +140,71 @@
       <DependentUpon>EditTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Film.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FilmSessionHall.xaml.cs">
+      <DependentUpon>FilmSessionHall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FilmSessions.xaml.cs">
+      <DependentUpon>FilmSessions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Film_Sessions_Result.cs">
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Film_Session_Hall.cs">
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FullSession.xaml.cs">
+      <DependentUpon>FullSession.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FullTicket.xaml.cs">
+      <DependentUpon>FullTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Full_Session.cs">
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Full_Ticket.cs">
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="General_Func.cs" />
     <Compile Include="Hall.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model.cs">
+    <Compile Include="Model_Cinema_DataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Cinema_DataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_Cinema_DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Request\Revenue.xaml.cs">
+      <DependentUpon>Revenue.xaml</DependentUpon>
     </Compile>
     <Compile Include="Session.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Ticket.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="View\ViewCinema.xaml.cs">
       <DependentUpon>ViewCinema.xaml</DependentUpon>
@@ -262,6 +299,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Request\FilmSessionHall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Request\FilmSessions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Request\FullSession.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Request\FullTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -274,6 +327,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Request\Revenue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewCinema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -304,16 +361,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -331,12 +378,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model.edmx">
+    <EntityDeploy Include="Model_Cinema_DataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model_Cinema_DataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <None Include="Model_Cinema_DataBase.edmx.diagram">
+      <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -348,20 +395,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model_Cinema_DataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
+      <LastGenOutput>Model_Cinema_DataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model_Cinema_DataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
+      <LastGenOutput>Model_Cinema_DataBase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

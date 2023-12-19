@@ -19,7 +19,7 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class EditSession : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         int selected_hall = -1;
         int selected_film = -1;
         public EditSession()

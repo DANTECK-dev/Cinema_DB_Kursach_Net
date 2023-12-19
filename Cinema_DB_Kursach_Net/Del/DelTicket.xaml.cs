@@ -19,11 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class DelTicket : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         public DelTicket()
         {
             InitializeComponent();
-            _entities = new cinema_DBEntities();       // вытаскиваем всю БД
+            _entities = new Cinema_DataBaseEntities();       // вытаскиваем всю БД
             ID_CB.ItemsSource = _entities.Tickets.ToList();      // вытаскиваем список клиентов из БД
         }
         private void Click(object sender, RoutedEventArgs e)

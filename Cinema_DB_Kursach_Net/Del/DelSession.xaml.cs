@@ -19,11 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class DelSession : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         public DelSession()
         {
             InitializeComponent();
-            _entities = new cinema_DBEntities();       // вытаскиваем всю БД
+            _entities = new Cinema_DataBaseEntities();       // вытаскиваем всю БД
             Date_CB.ItemsSource = _entities.Sessions.ToList();      // вытаскиваем список клиентов из БД
         }
         private void Click(object sender, RoutedEventArgs e)

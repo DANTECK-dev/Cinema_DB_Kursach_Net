@@ -19,14 +19,14 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddHall : Window
     {
-        cinema_DBEntities entities;
+        Cinema_DataBaseEntities entities;
         int selected = -1;
 
         public AddHall()
         {
             InitializeComponent();
-            entities = new cinema_DBEntities();
-            Cinema_CB.ItemsSource = (new cinema_DBEntities()).Cinemas.ToList();
+            entities = new Cinema_DataBaseEntities();
+            Cinema_CB.ItemsSource = (new Cinema_DataBaseEntities()).Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)
         {

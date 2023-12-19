@@ -15,10 +15,10 @@ namespace Cinema_DB_Kursach_Net
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class cinema_DBEntities : DbContext
+    public partial class Cinema_DataBaseEntities : DbContext
     {
-        public cinema_DBEntities()
-            : base("name=cinema_DBEntities")
+        public Cinema_DataBaseEntities()
+            : base("name=Cinema_DataBaseEntities")
         {
         }
     
@@ -35,6 +35,31 @@ namespace Cinema_DB_Kursach_Net
         public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
+        public virtual DbSet<Film_Session_Hall> Film_Session_Hall { get; set; }
+        public virtual DbSet<Full_Session> Full_Session { get; set; }
+        public virtual DbSet<Full_Ticket> Full_Ticket { get; set; }
+    
+        public virtual ObjectResult<Film_Sessions_Result> Film_Sessions(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Film_Sessions_Result>("Film_Sessions", nameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> Revenue(Nullable<System.DateTime> start_date, Nullable<System.DateTime> end_date)
+        {
+            var start_dateParameter = start_date.HasValue ?
+                new ObjectParameter("start_date", start_date) :
+                new ObjectParameter("start_date", typeof(System.DateTime));
+    
+            var end_dateParameter = end_date.HasValue ?
+                new ObjectParameter("end_date", end_date) :
+                new ObjectParameter("end_date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Revenue", start_dateParameter, end_dateParameter);
+        }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

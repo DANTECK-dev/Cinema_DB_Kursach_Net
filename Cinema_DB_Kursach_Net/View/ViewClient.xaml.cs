@@ -22,7 +22,7 @@ namespace Cinema_DB_Kursach_Net
         public ViewClient()
         {
             InitializeComponent();
-            _DataGrid.ItemsSource = (new cinema_DBEntities()).Clients.ToList();
+            _DataGrid.ItemsSource = (new Cinema_DataBaseEntities()).Clients.ToList();
         }
     }
 }

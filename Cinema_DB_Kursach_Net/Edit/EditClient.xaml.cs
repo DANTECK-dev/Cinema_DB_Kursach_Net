@@ -19,11 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class EditClient : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         public EditClient()
         {
             InitializeComponent();
-            _entities = new cinema_DBEntities();
+            _entities = new Cinema_DataBaseEntities();
             Name_CB.ItemsSource = _entities.Clients.ToList();
         }
         private void Change(object sender, TextChangedEventArgs e)      // функция очищения текста статуса исполнения запроса

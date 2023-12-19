@@ -19,12 +19,12 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class EditStaff : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         int selected = -1;
         public EditStaff()
         {
             InitializeComponent();
-            _entities = new cinema_DBEntities();
+            _entities = new Cinema_DataBaseEntities();
             Cinema_CB.ItemsSource = _entities.Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)

@@ -15,14 +15,13 @@ using System.Windows.Shapes;
 namespace Cinema_DB_Kursach_Net
 {
     /// <summary>
-    /// Логика взаимодействия для ViewCinema.xaml
+    /// Логика взаимодействия для FullTicket.xaml
     /// </summary>
-    public partial class ViewCinema : Window
+    public partial class FullTicket : Window
     {
-        public ViewCinema()
+        public FullTicket()
         {
             InitializeComponent();
-            _DataGrid.ItemsSource = (new Cinema_DataBaseEntities()).Cinemas.ToList();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddTicket : Window
     {
-        cinema_DBEntities entities;
+        Cinema_DataBaseEntities entities;
         int selected_film = -1;
         int selected_client = -1;
         int selected_session = -1;
@@ -32,16 +32,16 @@ namespace Cinema_DB_Kursach_Net
         public AddTicket()
         {
             InitializeComponent();
-            entities = new cinema_DBEntities();
-            AddRangeFilms((new cinema_DBEntities()).Films.ToList());
-            AddRangeSessions((new cinema_DBEntities()).Sessions.ToList());
+            entities = new Cinema_DataBaseEntities();
+            AddRangeFilms((new Cinema_DataBaseEntities()).Films.ToList());
+            AddRangeSessions((new Cinema_DataBaseEntities()).Sessions.ToList());
 
             Client empty = new Client();
             empty.id = 0;
             empty.name = "Нет";
             List<Client> clients = new List<Client>();
             clients.Add(empty);
-            clients.AddRange((new cinema_DBEntities()).Clients.ToList());
+            clients.AddRange((new Cinema_DataBaseEntities()).Clients.ToList());
             AddRangeClients(clients);
 
             
@@ -115,10 +115,10 @@ namespace Cinema_DB_Kursach_Net
             selected_film = -1;
             if (Film_CB.SelectedIndex == -1) return;
             selected_film = ((Film)Film_CB.SelectedItem).id;
-            //if (session != null && session.id == 0) AddRangeSessions((new cinema_DBEntities()).Sessions.ToList());
+            //if (session != null && session.id == 0) AddRangeSessions((new Cinema_DataBaseEntities()).Sessions.ToList());
             //else
             //{
-                AddRangeSessions((new cinema_DBEntities()).Sessions
+                AddRangeSessions((new Cinema_DataBaseEntities()).Sessions
                     .Where(x => x.id_film == ((Film)Film_CB.SelectedItem).id).ToList());
                 if (session != null) Session_CB.SelectedValue = session.id;
             //}
@@ -140,10 +140,10 @@ namespace Cinema_DB_Kursach_Net
             selected_session = -1;
             if (Session_CB.SelectedIndex == -1) return;
             selected_session = ((Session)Session_CB.SelectedItem).id;
-            //if  (film != null && film.id == 0) AddRangeFilms((new cinema_DBEntities()).Films.ToList());
+            //if  (film != null && film.id == 0) AddRangeFilms((new Cinema_DataBaseEntities()).Films.ToList());
             //else
             //{
-                AddRangeFilms((new cinema_DBEntities()).Films
+                AddRangeFilms((new Cinema_DataBaseEntities()).Films
                     .Where(x => x.id == ((Session)Session_CB.SelectedItem).id_film).ToList());
                 if (film != null) Film_CB.SelectedValue = film.id;
             //}
@@ -151,12 +151,12 @@ namespace Cinema_DB_Kursach_Net
 
         private void Clear_Film_B_Click(object sender, RoutedEventArgs e)
         {
-            AddRangeFilms((new cinema_DBEntities()).Films.ToList());
+            AddRangeFilms((new Cinema_DataBaseEntities()).Films.ToList());
         }
 
         private void Clear_Session_B_Click(object sender, RoutedEventArgs e)
         {
-            AddRangeSessions((new cinema_DBEntities()).Sessions.ToList());
+            AddRangeSessions((new Cinema_DataBaseEntities()).Sessions.ToList());
         }
     }
 }

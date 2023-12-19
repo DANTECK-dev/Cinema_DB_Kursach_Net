@@ -33,7 +33,7 @@ namespace Cinema_DB_Kursach_Net
         {
             try
             {
-                cinema_DBEntities entities = new cinema_DBEntities();
+                Cinema_DataBaseEntities entities = new Cinema_DataBaseEntities();
                 Film table = new Film();
 
                 table.name = Name_TB.Text;

@@ -19,12 +19,12 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class EditHall : Window
     {
-        cinema_DBEntities _entities;
+        Cinema_DataBaseEntities _entities;
         int selected = -1;
         public EditHall()
         {
             InitializeComponent();
-            _entities = new cinema_DBEntities();
+            _entities = new Cinema_DataBaseEntities();
             Name_CB.ItemsSource = _entities.Films.ToList();
             Cinema_CB.ItemsSource = _entities.Cinemas.ToList();
         }

@@ -19,16 +19,16 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddSession : Window
     {
-        cinema_DBEntities entities;
+        Cinema_DataBaseEntities entities;
         int selected_hall = -1;
         int selected_film = -1;
 
         public AddSession()
         {
             InitializeComponent();
-            entities = new cinema_DBEntities();
-            Hall_CB.ItemsSource = (new cinema_DBEntities()).Halls.ToList();
-            Film_CB.ItemsSource = (new cinema_DBEntities()).Films.ToList();
+            entities = new Cinema_DataBaseEntities();
+            Hall_CB.ItemsSource = (new Cinema_DataBaseEntities()).Halls.ToList();
+            Film_CB.ItemsSource = (new Cinema_DataBaseEntities()).Films.ToList();
 
             Date_TB.Text = DateTime.Now.ToString();
         }

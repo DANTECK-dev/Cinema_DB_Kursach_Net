@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Cinema_DataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cinema">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="genre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="age_rating" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="capacity" Type="int" Nullable="false" />
+          <Property Name="id_cinema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="id_hall" Type="int" Nullable="false" />
+          <Property Name="id_film" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="post" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="id_cinema" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_session" Type="int" Nullable="false" />
+          <Property Name="id_client" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Cinema_DataBase.dbo.Film_Session_Hall" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Film_Session_Hall">
+          <Key>
+            <PropertyRef Name="hall_name" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="capacity" />
+            <PropertyRef Name="id_cinema" />
+            <PropertyRef Name="fIlm_name" />
+            <PropertyRef Name="genre" />
+            <PropertyRef Name="country" />
+            <PropertyRef Name="age_rating" />
+            <PropertyRef Name="id_session" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="duration" />
+            <PropertyRef Name="id_hall" />
+            <PropertyRef Name="id_film" />
+          </Key>
+          <Property Name="hall_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="capacity" Type="int" Nullable="false" />
+          <Property Name="id_cinema" Type="int" Nullable="false" />
+          <Property Name="fIlm_name" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="genre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="age_rating" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_session" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="id_hall" Type="int" Nullable="false" />
+          <Property Name="id_film" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Cinema_DataBase.dbo.Full_Session" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Full_Session">
+          <Key>
+            <PropertyRef Name="duration" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="id_session" />
+          </Key>
+          <Property Name="cinema_name" Type="varchar" MaxLength="150" />
+          <Property Name="address" Type="varchar" MaxLength="250" />
+          <Property Name="cinema_contact" Type="varchar" MaxLength="150" />
+          <Property Name="id_film" Type="int" />
+          <Property Name="film_name" Type="varchar" MaxLength="250" />
+          <Property Name="genre" Type="varchar" MaxLength="200" />
+          <Property Name="country" Type="varchar" MaxLength="100" />
+          <Property Name="age_rating" Type="varchar" MaxLength="50" />
+          <Property Name="id_cinema" Type="int" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="150" />
+          <Property Name="hall_name" Type="varchar" MaxLength="150" />
+          <Property Name="id_hall" Type="int" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="id_session" Type="int" Nullable="false" />
+          <Property Name="id_ticket" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="status" Type="varchar" MaxLength="100" />
+          <Property Name="id_client" Type="int" />
+          <Property Name="client_name" Type="varchar" MaxLength="150" />
+          <Property Name="cilent_surname" Type="varchar" MaxLength="150" />
+          <Property Name="client_contact" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Cinema_DataBase.dbo.Full_Ticket" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Full_Ticket">
+          <Key>
+            <PropertyRef Name="id_ticket" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="id" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="250" />
+          <Property Name="genre" Type="varchar" MaxLength="200" />
+          <Property Name="country" Type="varchar" MaxLength="100" />
+          <Property Name="age_rating" Type="varchar" MaxLength="50" />
+          <Property Name="id_session" Type="int" />
+          <Property Name="duration" Type="int" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="id_hall" Type="int" />
+          <Property Name="hall_name" Type="varchar" MaxLength="150" />
+          <Property Name="type" Type="varchar" MaxLength="150" />
+          <Property Name="capacity" Type="int" />
+          <Property Name="id_cinema" Type="int" />
+          <Property Name="cinema_name" Type="varchar" MaxLength="150" />
+          <Property Name="address" Type="varchar" MaxLength="250" />
+          <Property Name="contact" Type="varchar" MaxLength="150" />
+          <Property Name="id_ticket" Type="int" Nullable="false" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_client" Type="int" />
+          <Property Name="client_name" Type="varchar" MaxLength="150" />
+          <Property Name="surname" Type="varchar" MaxLength="150" />
+          <Property Name="client_contact" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="fk_HallCinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hall" Type="Self.Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinema">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="id_cinema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SessFilm">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="id_film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SessHall">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="id_hall" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StaffCinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinema">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="id_cinema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TickClie">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TickSess">
+          <End Role="Session" Type="Self.Session" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="id_session" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Film_Sessions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="Revenue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="start_date" Type="date" Mode="In" />
+          <Parameter Name="end_date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище Cinema_DataBaseModelContainer">
+          <EntitySet Name="Cinema" EntityType="Self.Cinema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hall" EntityType="Self.Hall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film_Session_Hall" EntityType="Self.Film_Session_Hall" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Film_Session_Hall].[hall_name] AS [hall_name], 
+    [Film_Session_Hall].[type] AS [type], 
+    [Film_Session_Hall].[capacity] AS [capacity], 
+    [Film_Session_Hall].[id_cinema] AS [id_cinema], 
+    [Film_Session_Hall].[fIlm_name] AS [fIlm_name], 
+    [Film_Session_Hall].[genre] AS [genre], 
+    [Film_Session_Hall].[country] AS [country], 
+    [Film_Session_Hall].[age_rating] AS [age_rating], 
+    [Film_Session_Hall].[id_session] AS [id_session], 
+    [Film_Session_Hall].[date] AS [date], 
+    [Film_Session_Hall].[duration] AS [duration], 
+    [Film_Session_Hall].[id_hall] AS [id_hall], 
+    [Film_Session_Hall].[id_film] AS [id_film]
+    FROM [dbo].[Film_Session_Hall] AS [Film_Session_Hall]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Full_Session" EntityType="Self.Full_Session" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Full_Session].[cinema_name] AS [cinema_name], 
+    [Full_Session].[address] AS [address], 
+    [Full_Session].[cinema_contact] AS [cinema_contact], 
+    [Full_Session].[id_film] AS [id_film], 
+    [Full_Session].[film_name] AS [film_name], 
+    [Full_Session].[genre] AS [genre], 
+    [Full_Session].[country] AS [country], 
+    [Full_Session].[age_rating] AS [age_rating], 
+    [Full_Session].[id_cinema] AS [id_cinema], 
+    [Full_Session].[capacity] AS [capacity], 
+    [Full_Session].[type] AS [type], 
+    [Full_Session].[hall_name] AS [hall_name], 
+    [Full_Session].[id_hall] AS [id_hall], 
+    [Full_Session].[duration] AS [duration], 
+    [Full_Session].[date] AS [date], 
+    [Full_Session].[id_session] AS [id_session], 
+    [Full_Session].[id_ticket] AS [id_ticket], 
+    [Full_Session].[price] AS [price], 
+    [Full_Session].[status] AS [status], 
+    [Full_Session].[id_client] AS [id_client], 
+    [Full_Session].[client_name] AS [client_name], 
+    [Full_Session].[cilent_surname] AS [cilent_surname], 
+    [Full_Session].[client_contact] AS [client_contact]
+    FROM [dbo].[Full_Session] AS [Full_Session]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Full_Ticket" EntityType="Self.Full_Ticket" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Full_Ticket].[id] AS [id], 
+    [Full_Ticket].[name] AS [name], 
+    [Full_Ticket].[genre] AS [genre], 
+    [Full_Ticket].[country] AS [country], 
+    [Full_Ticket].[age_rating] AS [age_rating], 
+    [Full_Ticket].[id_session] AS [id_session], 
+    [Full_Ticket].[duration] AS [duration], 
+    [Full_Ticket].[date] AS [date], 
+    [Full_Ticket].[id_hall] AS [id_hall], 
+    [Full_Ticket].[hall_name] AS [hall_name], 
+    [Full_Ticket].[type] AS [type], 
+    [Full_Ticket].[capacity] AS [capacity], 
+    [Full_Ticket].[id_cinema] AS [id_cinema], 
+    [Full_Ticket].[cinema_name] AS [cinema_name], 
+    [Full_Ticket].[address] AS [address], 
+    [Full_Ticket].[contact] AS [contact], 
+    [Full_Ticket].[id_ticket] AS [id_ticket], 
+    [Full_Ticket].[price] AS [price], 
+    [Full_Ticket].[status] AS [status], 
+    [Full_Ticket].[id_client] AS [id_client], 
+    [Full_Ticket].[client_name] AS [client_name], 
+    [Full_Ticket].[surname] AS [surname], 
+    [Full_Ticket].[client_contact] AS [client_contact]
+    FROM [dbo].[Full_Ticket] AS [Full_Ticket]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_HallCinema" Association="Self.fk_HallCinema">
+            <End Role="Cinema" EntitySet="Cinema" />
+            <End Role="Hall" EntitySet="Hall" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SessFilm" Association="Self.fk_SessFilm">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SessHall" Association="Self.fk_SessHall">
+            <End Role="Hall" EntitySet="Hall" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StaffCinema" Association="Self.fk_StaffCinema">
+            <End Role="Cinema" EntitySet="Cinema" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TickClie" Association="Self.fk_TickClie">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TickSess" Association="Self.fk_TickSess">
+            <End Role="Session" EntitySet="Session" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cinema_DataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cinema">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Halls" Relationship="Self.fk_HallCinema" FromRole="Cinema" ToRole="Hall" />
+          <NavigationProperty Name="Staffs" Relationship="Self.fk_StaffCinema" FromRole="Cinema" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tickets" Relationship="Self.fk_TickClie" FromRole="Client" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sessions" Relationship="Self.fk_SessFilm" FromRole="Film" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Hall">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="capacity" Type="Int32" Nullable="false" />
+          <Property Name="id_cinema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cinema" Relationship="Self.fk_HallCinema" FromRole="Hall" ToRole="Cinema" />
+          <NavigationProperty Name="Sessions" Relationship="Self.fk_SessHall" FromRole="Hall" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="id_hall" Type="Int32" Nullable="false" />
+          <Property Name="id_film" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Film" Relationship="Self.fk_SessFilm" FromRole="Session" ToRole="Film" />
+          <NavigationProperty Name="Hall" Relationship="Self.fk_SessHall" FromRole="Session" ToRole="Hall" />
+          <NavigationProperty Name="Tickets" Relationship="Self.fk_TickSess" FromRole="Session" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="post" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_cinema" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cinema" Relationship="Self.fk_StaffCinema" FromRole="Staff" ToRole="Cinema" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_session" Type="Int32" Nullable="false" />
+          <Property Name="id_client" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.fk_TickClie" FromRole="Ticket" ToRole="Client" />
+          <NavigationProperty Name="Session" Relationship="Self.fk_TickSess" FromRole="Ticket" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Film_Session_Hall">
+          <Key>
+            <PropertyRef Name="hall_name" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="capacity" />
+            <PropertyRef Name="id_cinema" />
+            <PropertyRef Name="fIlm_name" />
+            <PropertyRef Name="genre" />
+            <PropertyRef Name="country" />
+            <PropertyRef Name="age_rating" />
+            <PropertyRef Name="id_session" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="duration" />
+            <PropertyRef Name="id_hall" />
+            <PropertyRef Name="id_film" />
+          </Key>
+          <Property Name="hall_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="capacity" Type="Int32" Nullable="false" />
+          <Property Name="id_cinema" Type="Int32" Nullable="false" />
+          <Property Name="fIlm_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_session" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="id_hall" Type="Int32" Nullable="false" />
+          <Property Name="id_film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Full_Session">
+          <Key>
+            <PropertyRef Name="duration" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="id_session" />
+          </Key>
+          <Property Name="cinema_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cinema_contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_film" Type="Int32" />
+          <Property Name="film_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="genre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="age_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_cinema" Type="Int32" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="hall_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_hall" Type="Int32" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_session" Type="Int32" Nullable="false" />
+          <Property Name="id_ticket" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_client" Type="Int32" />
+          <Property Name="client_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cilent_surname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="client_contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Full_Ticket">
+          <Key>
+            <PropertyRef Name="id_ticket" />
+            <PropertyRef Name="price" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="genre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="age_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_session" Type="Int32" />
+          <Property Name="duration" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="id_hall" Type="Int32" />
+          <Property Name="hall_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="capacity" Type="Int32" />
+          <Property Name="id_cinema" Type="Int32" />
+          <Property Name="cinema_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_ticket" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_client" Type="Int32" />
+          <Property Name="client_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="surname" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="client_contact" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="fk_HallCinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hall" Type="Self.Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinema">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Hall">
+              <PropertyRef Name="id_cinema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_StaffCinema">
+          <End Role="Cinema" Type="Self.Cinema" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cinema">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="id_cinema" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TickClie">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SessFilm">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="id_film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SessHall">
+          <End Role="Hall" Type="Self.Hall" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hall">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="id_hall" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_TickSess">
+          <End Role="Session" Type="Self.Session" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="id_session" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Cinema_DataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cinemas" EntityType="Self.Cinema" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Films" EntityType="Self.Film" />
+          <EntitySet Name="Halls" EntityType="Self.Hall" />
+          <EntitySet Name="Sessions" EntityType="Self.Session" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+          <EntitySet Name="Film_Session_Hall" EntityType="Self.Film_Session_Hall" />
+          <EntitySet Name="Full_Session" EntityType="Self.Full_Session" />
+          <EntitySet Name="Full_Ticket" EntityType="Self.Full_Ticket" />
+          <AssociationSet Name="fk_HallCinema" Association="Self.fk_HallCinema">
+            <End Role="Cinema" EntitySet="Cinemas" />
+            <End Role="Hall" EntitySet="Halls" />
+          </AssociationSet>
+          <AssociationSet Name="fk_StaffCinema" Association="Self.fk_StaffCinema">
+            <End Role="Cinema" EntitySet="Cinemas" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TickClie" Association="Self.fk_TickClie">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SessFilm" Association="Self.fk_SessFilm">
+            <End Role="Film" EntitySet="Films" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SessHall" Association="Self.fk_SessHall">
+            <End Role="Hall" EntitySet="Halls" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_TickSess" Association="Self.fk_TickSess">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <FunctionImport Name="Film_Sessions" ReturnType="Collection(Cinema_DataBaseModel.Film_Sessions_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Revenue" ReturnType="Collection(Int32)">
+            <Parameter Name="start_date" Mode="In" Type="DateTime" />
+            <Parameter Name="end_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Cinema_DataBaseModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Cinema_DataBaseModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="Film_Sessions_Result">
+          <Property Type="String" Name="name" Nullable="false" MaxLength="250" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Hall" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Cinema_DataBaseModelContainer" CdmEntityContainer="Cinema_DataBaseEntities">
+          <EntitySetMapping Name="Cinemas">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Cinema">
+              <MappingFragment StoreEntitySet="Cinema">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Films">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Film">
+              <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="age_rating" ColumnName="age_rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Halls">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Hall">
+              <MappingFragment StoreEntitySet="Hall">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="id_cinema" ColumnName="id_cinema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Session">
+              <MappingFragment StoreEntitySet="Session">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="id_hall" ColumnName="id_hall" />
+                <ScalarProperty Name="id_film" ColumnName="id_film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="post" ColumnName="post" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="id_cinema" ColumnName="id_cinema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Film_Session_Hall">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Film_Session_Hall">
+              <MappingFragment StoreEntitySet="Film_Session_Hall">
+                <ScalarProperty Name="hall_name" ColumnName="hall_name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="id_cinema" ColumnName="id_cinema" />
+                <ScalarProperty Name="fIlm_name" ColumnName="fIlm_name" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="age_rating" ColumnName="age_rating" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="id_hall" ColumnName="id_hall" />
+                <ScalarProperty Name="id_film" ColumnName="id_film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Full_Session">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Full_Session">
+              <MappingFragment StoreEntitySet="Full_Session">
+                <ScalarProperty Name="cinema_name" ColumnName="cinema_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="cinema_contact" ColumnName="cinema_contact" />
+                <ScalarProperty Name="id_film" ColumnName="id_film" />
+                <ScalarProperty Name="film_name" ColumnName="film_name" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="age_rating" ColumnName="age_rating" />
+                <ScalarProperty Name="id_cinema" ColumnName="id_cinema" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="hall_name" ColumnName="hall_name" />
+                <ScalarProperty Name="id_hall" ColumnName="id_hall" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="cilent_surname" ColumnName="cilent_surname" />
+                <ScalarProperty Name="client_contact" ColumnName="client_contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Full_Ticket">
+            <EntityTypeMapping TypeName="Cinema_DataBaseModel.Full_Ticket">
+              <MappingFragment StoreEntitySet="Full_Ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="genre" ColumnName="genre" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="age_rating" ColumnName="age_rating" />
+                <ScalarProperty Name="id_session" ColumnName="id_session" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id_hall" ColumnName="id_hall" />
+                <ScalarProperty Name="hall_name" ColumnName="hall_name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="id_cinema" ColumnName="id_cinema" />
+                <ScalarProperty Name="cinema_name" ColumnName="cinema_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="client_contact" ColumnName="client_contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Film_Sessions" FunctionName="Хранилище Cinema_DataBaseModel.Film_Sessions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Cinema_DataBaseModel.Film_Sessions_Result">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Hall" ColumnName="Hall" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Revenue" FunctionName="Хранилище Cinema_DataBaseModel.Revenue" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище Cinema_DataBaseModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Cinema_DataBaseModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище Cinema_DataBaseModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Cinema_DataBaseModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Cinema_DataBaseModel.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

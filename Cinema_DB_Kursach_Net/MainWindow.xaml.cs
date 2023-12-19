@@ -161,5 +161,33 @@ namespace Cinema_DB_Kursach_Net
             DelTicket window = new DelTicket();
             window.Show();
         }
+
+
+        // REQUEST
+        private void OpenFilmSessions(object sender, RoutedEventArgs e)
+        {
+            FilmSessions window = new FilmSessions();
+            window.Show();
+        }
+        private void OpenRevenue(object sender, RoutedEventArgs e)
+        {
+            Revenue window = new Revenue();
+            window.Show();
+        }
+        private void OpenFullTicket(object sender, RoutedEventArgs e)
+        {
+            FullTicket window = new FullTicket();
+            window.Show();
+        }
+        private void OpenFullSession(object sender, RoutedEventArgs e)
+        {
+            FullSession window = new FullSession();
+            window.Show();
+        }
+        private void OpenFilmSessionHall(object sender, RoutedEventArgs e)
+        {
+            FilmSessionHall window = new FilmSessionHall();
+            window.Show();
+        }
     }
 }

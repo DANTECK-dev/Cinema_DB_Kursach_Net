@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\HELBUSHEK\source\repos\Cinema_DB_Kursach_Net\Cinema_DB_Kursach_Net\Model.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\HELBUSHEK\source\repos\Cinema_DB_Kursach_Net\Cinema_DB_Kursach_Net\Model_Cinema_DataBase.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
