@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class ViewHall : Window
     {
         Cinema_DataBaseEntities _entities;
-        public ViewHall(Cinema_DataBaseEntities entities)
+        public ViewHall(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

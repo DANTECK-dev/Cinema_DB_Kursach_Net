@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class DelStaff : Window
     {
         Cinema_DataBaseEntities _entities;
-        public DelStaff(Cinema_DataBaseEntities entities)
+        public DelStaff(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;     // вытаскиваем всю БД

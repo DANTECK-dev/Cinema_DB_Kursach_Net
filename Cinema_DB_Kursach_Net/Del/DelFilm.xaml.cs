@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class DelFilm : Window
     {
         Cinema_DataBaseEntities _entities;
-        public DelFilm(Cinema_DataBaseEntities entities)
+        public DelFilm(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;    // вытаскиваем всю БД

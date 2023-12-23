@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class ViewClient : Window
     {
         Cinema_DataBaseEntities _entities;
-        public ViewClient(Cinema_DataBaseEntities entities)
+        public ViewClient(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

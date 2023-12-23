@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class FullTicket : Window
     {
         Cinema_DataBaseEntities _entities;
-        public FullTicket(Cinema_DataBaseEntities entities)
+        public FullTicket(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

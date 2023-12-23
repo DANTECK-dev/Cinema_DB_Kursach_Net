@@ -22,7 +22,7 @@ namespace Cinema_DB_Kursach_Net
         Cinema_DataBaseEntities _entities;
         int selected_client = -1;
         int selected_session = -1;
-        public EditTicket(Cinema_DataBaseEntities entities)
+        public EditTicket(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

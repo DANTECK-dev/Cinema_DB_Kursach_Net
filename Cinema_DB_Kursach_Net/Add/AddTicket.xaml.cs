@@ -29,7 +29,7 @@ namespace Cinema_DB_Kursach_Net
         List<Film> films;
         List<Session> sessions;
 
-        public AddTicket(Cinema_DataBaseEntities entities)
+        public AddTicket(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

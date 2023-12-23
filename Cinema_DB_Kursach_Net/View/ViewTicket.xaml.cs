@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class ViewTicket : Window
     {
         Cinema_DataBaseEntities _entities;
-        public ViewTicket(Cinema_DataBaseEntities entities)
+        public ViewTicket(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

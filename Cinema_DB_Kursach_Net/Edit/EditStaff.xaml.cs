@@ -21,7 +21,7 @@ namespace Cinema_DB_Kursach_Net
     {
         Cinema_DataBaseEntities _entities;
         int selected = -1;
-        public EditStaff(Cinema_DataBaseEntities entities)
+        public EditStaff(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

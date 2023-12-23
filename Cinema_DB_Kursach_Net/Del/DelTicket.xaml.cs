@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     public partial class DelTicket : Window
     {
         Cinema_DataBaseEntities _entities;
-        public DelTicket(Cinema_DataBaseEntities entities)
+        public DelTicket(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;    // вытаскиваем всю БД

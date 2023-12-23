@@ -23,7 +23,7 @@ namespace Cinema_DB_Kursach_Net
         int selected_hall = -1;
         int selected_film = -1;
 
-        public AddSession(Cinema_DataBaseEntities entities)
+        public AddSession(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

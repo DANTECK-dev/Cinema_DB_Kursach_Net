@@ -39,7 +39,7 @@ namespace Cinema_DB_Kursach_Net
         string Selected_Client_Contact = null;
 
         List<Full_Session> list;
-        public FullSession(Cinema_DataBaseEntities entities)
+        public FullSession(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;

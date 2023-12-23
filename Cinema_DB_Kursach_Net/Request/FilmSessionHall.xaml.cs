@@ -32,7 +32,7 @@ namespace Cinema_DB_Kursach_Net
         string Selected_Duration = null;
         List<Film_Session_Hall> list;
 
-        public FilmSessionHall(Cinema_DataBaseEntities entities)
+        public FilmSessionHall(ref Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
             _entities = entities;
