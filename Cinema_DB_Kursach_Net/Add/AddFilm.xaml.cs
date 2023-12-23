@@ -19,9 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddFilm : Window
     {
-        public AddFilm()
+        Cinema_DataBaseEntities _entities;
+        public AddFilm(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
+            _entities = entities;
         }
         private void Change(object sender, TextChangedEventArgs e)
         {
@@ -33,7 +35,6 @@ namespace Cinema_DB_Kursach_Net
         {
             try
             {
-                Cinema_DataBaseEntities entities = new Cinema_DataBaseEntities();
                 Film table = new Film();
 
                 table.name = Name_TB.Text;
@@ -41,8 +42,8 @@ namespace Cinema_DB_Kursach_Net
                 table.country = Country_TB.Text;
                 table.age_rating = Age_Rating_TB.Text;
 
-                entities.Films.Add(table);
-                entities.SaveChanges();
+                _entities.Films.Add(table);
+                _entities.SaveChanges();
                 Status.Content = "Запись успешно добавлена";
 
             }

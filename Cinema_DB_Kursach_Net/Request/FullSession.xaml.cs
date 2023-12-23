@@ -39,10 +39,10 @@ namespace Cinema_DB_Kursach_Net
         string Selected_Client_Contact = null;
 
         List<Full_Session> list;
-        public FullSession()
+        public FullSession(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Update();
 
             FillComboBox(Cinema_Name_CB,      _entities.Full_Session.ToList(), x => x.cinema_name);

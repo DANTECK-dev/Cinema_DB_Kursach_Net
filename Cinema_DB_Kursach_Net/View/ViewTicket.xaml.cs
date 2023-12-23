@@ -19,10 +19,12 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class ViewTicket : Window
     {
-        public ViewTicket()
+        Cinema_DataBaseEntities _entities;
+        public ViewTicket(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _DataGrid.ItemsSource = (new Cinema_DataBaseEntities()).Tickets.ToList();
+            _entities = entities;
+            _DataGrid.ItemsSource = _entities.Tickets.ToList();
         }
     }
 }

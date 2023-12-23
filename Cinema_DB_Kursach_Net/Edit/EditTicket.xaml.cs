@@ -22,10 +22,10 @@ namespace Cinema_DB_Kursach_Net
         Cinema_DataBaseEntities _entities;
         int selected_client = -1;
         int selected_session = -1;
-        public EditTicket()
+        public EditTicket(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Session_CB.ItemsSource = _entities.Sessions.ToList();
             Client_CB.ItemsSource = _entities.Clients.ToList();
         }

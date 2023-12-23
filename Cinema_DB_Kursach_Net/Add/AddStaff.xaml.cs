@@ -19,13 +19,13 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddStaff : Window
     {
-        Cinema_DataBaseEntities entities;
+        Cinema_DataBaseEntities _entities;
         int selected = -1;
 
-        public AddStaff()
+        public AddStaff(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Cinema_CB.ItemsSource = (new Cinema_DataBaseEntities()).Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)
@@ -46,8 +46,8 @@ namespace Cinema_DB_Kursach_Net
                 table.contact = Contact_TB.Text;
                 table.id_cinema = selected;
 
-                entities.Staffs.Add(table);
-                entities.SaveChanges();
+                _entities.Staffs.Add(table);
+                _entities.SaveChanges();
                 Status.Content = "Запись успешно добавлена";
 
             }

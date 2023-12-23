@@ -20,7 +20,7 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddTicket : Window
     {
-        Cinema_DataBaseEntities entities;
+        Cinema_DataBaseEntities _entities;
         int selected_film = -1;
         int selected_client = -1;
         int selected_session = -1;
@@ -29,10 +29,10 @@ namespace Cinema_DB_Kursach_Net
         List<Film> films;
         List<Session> sessions;
 
-        public AddTicket()
+        public AddTicket(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             AddRangeFilms((new Cinema_DataBaseEntities()).Films.ToList());
             AddRangeSessions((new Cinema_DataBaseEntities()).Sessions.ToList());
 
@@ -98,8 +98,8 @@ namespace Cinema_DB_Kursach_Net
                 else table.id_client = selected_client;
                 table.id_session = selected_session;
 
-                entities.Tickets.Add(table);
-                entities.SaveChanges();
+                _entities.Tickets.Add(table);
+                _entities.SaveChanges();
                 Status.Content = "Запись успешно добавлена";
 
             }

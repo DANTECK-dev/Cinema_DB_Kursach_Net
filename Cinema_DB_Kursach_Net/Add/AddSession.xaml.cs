@@ -19,14 +19,14 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddSession : Window
     {
-        Cinema_DataBaseEntities entities;
+        Cinema_DataBaseEntities _entities;
         int selected_hall = -1;
         int selected_film = -1;
 
-        public AddSession()
+        public AddSession(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Hall_CB.ItemsSource = (new Cinema_DataBaseEntities()).Halls.ToList();
             Film_CB.ItemsSource = (new Cinema_DataBaseEntities()).Films.ToList();
 
@@ -49,8 +49,8 @@ namespace Cinema_DB_Kursach_Net
                 table.id_hall = selected_hall;
                 table.id_film = selected_film;
 
-                entities.Sessions.Add(table);
-                entities.SaveChanges();
+                _entities.Sessions.Add(table);
+                _entities.SaveChanges();
                 Status.Content = "Запись успешно добавлена";
 
             }

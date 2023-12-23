@@ -21,10 +21,10 @@ namespace Cinema_DB_Kursach_Net
     {
         Cinema_DataBaseEntities _entities;
         int selected = -1;
-        public EditStaff()
+        public EditStaff(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Cinema_CB.ItemsSource = _entities.Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)

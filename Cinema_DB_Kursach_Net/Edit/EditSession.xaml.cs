@@ -22,9 +22,10 @@ namespace Cinema_DB_Kursach_Net
         Cinema_DataBaseEntities _entities;
         int selected_hall = -1;
         int selected_film = -1;
-        public EditSession()
+        public EditSession(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
+            _entities = entities;
             Date_CB.ItemsSource = _entities.Sessions.ToList();
             Hall_CB.ItemsSource = _entities.Halls.ToList();
             Film_CB.ItemsSource = _entities.Films.ToList();

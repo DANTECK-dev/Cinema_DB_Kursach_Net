@@ -19,13 +19,13 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class AddHall : Window
     {
-        Cinema_DataBaseEntities entities;
+        Cinema_DataBaseEntities _entities;
         int selected = -1;
 
-        public AddHall()
+        public AddHall(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Cinema_CB.ItemsSource = (new Cinema_DataBaseEntities()).Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)
@@ -46,8 +46,8 @@ namespace Cinema_DB_Kursach_Net
                 table.capacity = int.Parse(Capacity_TB.Text);
                 table.id_cinema = selected;
 
-                entities.Halls.Add(table);
-                entities.SaveChanges();
+                _entities.Halls.Add(table);
+                _entities.SaveChanges();
                 Status.Content = "Запись успешно добавлена";
 
             }

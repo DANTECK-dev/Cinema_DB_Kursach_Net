@@ -20,10 +20,10 @@ namespace Cinema_DB_Kursach_Net
     public partial class DelClient : Window
     {
         Cinema_DataBaseEntities _entities;
-        public DelClient()
+        public DelClient(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();       // вытаскиваем всю БД
+            _entities = entities;     // вытаскиваем всю БД
             Client_CB.ItemsSource = _entities.Clients.ToList();      // вытаскиваем список клиентов из БД
         }
         private void Click(object sender, RoutedEventArgs e)

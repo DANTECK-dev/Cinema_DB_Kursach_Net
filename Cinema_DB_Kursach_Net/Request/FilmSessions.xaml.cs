@@ -19,9 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class FilmSessions : Window
     {
-        public FilmSessions()
+        Cinema_DataBaseEntities _entities;
+        public FilmSessions(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
+            _entities = entities;
         }
     }
 }

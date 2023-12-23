@@ -19,9 +19,11 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class Revenue : Window
     {
-        public Revenue()
+        Cinema_DataBaseEntities _entities;
+        public Revenue(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
+            _entities = entities;
         }
     }
 }

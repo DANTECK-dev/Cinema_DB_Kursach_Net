@@ -20,10 +20,10 @@ namespace Cinema_DB_Kursach_Net
     public partial class EditClient : Window
     {
         Cinema_DataBaseEntities _entities;
-        public EditClient()
+        public EditClient(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Name_CB.ItemsSource = _entities.Clients.ToList();
         }
         private void Change(object sender, TextChangedEventArgs e)      // функция очищения текста статуса исполнения запроса

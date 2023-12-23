@@ -32,10 +32,10 @@ namespace Cinema_DB_Kursach_Net
         string Selected_Duration = null;
         List<Film_Session_Hall> list;
 
-        public FilmSessionHall()
+        public FilmSessionHall(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();
+            _entities = entities;
             Update();
 
             FillComboBox(Hall_Name_CB,        _entities.Film_Session_Hall.ToList(), x => x.hall_name);

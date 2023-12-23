@@ -20,10 +20,10 @@ namespace Cinema_DB_Kursach_Net
     public partial class DelHall : Window
     {
         Cinema_DataBaseEntities _entities;
-        public DelHall()
+        public DelHall(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _entities = new Cinema_DataBaseEntities();       // вытаскиваем всю БД
+            _entities = entities;       // вытаскиваем всю БД
             Name_CB.ItemsSource = _entities.Halls.ToList();      // вытаскиваем список клиентов из БД
         }
         private void Click(object sender, RoutedEventArgs e)

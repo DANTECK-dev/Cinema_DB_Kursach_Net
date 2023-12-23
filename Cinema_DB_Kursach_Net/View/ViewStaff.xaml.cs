@@ -19,10 +19,12 @@ namespace Cinema_DB_Kursach_Net
     /// </summary>
     public partial class ViewStaff : Window
     {
-        public ViewStaff()
+        Cinema_DataBaseEntities _entities;
+        public ViewStaff(Cinema_DataBaseEntities entities)
         {
             InitializeComponent();
-            _DataGrid.ItemsSource = (new Cinema_DataBaseEntities()).Staffs.ToList();
+            _entities = entities;
+            _DataGrid.ItemsSource = _entities.Staffs.ToList();
         }
     }
 }
