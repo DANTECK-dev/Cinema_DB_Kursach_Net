@@ -48,7 +48,7 @@ namespace Cinema_DB_Kursach_Net
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Film_Sessions_Result>("Film_Sessions", nameParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> Revenue(Nullable<System.DateTime> start_date, Nullable<System.DateTime> end_date)
+        public virtual ObjectResult<Revenue_Result> Revenue(Nullable<System.DateTime> start_date, Nullable<System.DateTime> end_date)
         {
             var start_dateParameter = start_date.HasValue ?
                 new ObjectParameter("start_date", start_date) :
@@ -58,7 +58,7 @@ namespace Cinema_DB_Kursach_Net
                 new ObjectParameter("end_date", end_date) :
                 new ObjectParameter("end_date", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Revenue", start_dateParameter, end_dateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Revenue_Result>("Revenue", start_dateParameter, end_dateParameter);
         }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
@@ -162,6 +162,19 @@ namespace Cinema_DB_Kursach_Net
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> TotalRevenue(Nullable<System.DateTime> start_date, Nullable<System.DateTime> end_date)
+        {
+            var start_dateParameter = start_date.HasValue ?
+                new ObjectParameter("start_date", start_date) :
+                new ObjectParameter("start_date", typeof(System.DateTime));
+    
+            var end_dateParameter = end_date.HasValue ?
+                new ObjectParameter("end_date", end_date) :
+                new ObjectParameter("end_date", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("TotalRevenue", start_dateParameter, end_dateParameter);
         }
     }
 }

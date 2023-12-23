@@ -298,6 +298,10 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TotalRevenue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="start_date" Type="date" Mode="In" />
+          <Parameter Name="end_date" Type="date" Mode="In" />
+        </Function>
         <EntityContainer Name="Хранилище Cinema_DataBaseModelContainer">
           <EntitySet Name="Cinema" EntityType="Self.Cinema" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -708,7 +712,7 @@
           <FunctionImport Name="Film_Sessions" ReturnType="Collection(Cinema_DataBaseModel.Film_Sessions_Result)">
             <Parameter Name="name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Revenue" ReturnType="Collection(Int32)">
+          <FunctionImport Name="Revenue" ReturnType="Collection(Cinema_DataBaseModel.Revenue_Result)">
             <Parameter Name="start_date" Mode="In" Type="DateTime" />
             <Parameter Name="end_date" Mode="In" Type="DateTime" />
           </FunctionImport>
@@ -742,11 +746,19 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="TotalRevenue" ReturnType="Collection(Int32)">
+            <Parameter Name="start_date" Mode="In" Type="DateTime" />
+            <Parameter Name="end_date" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Film_Sessions_Result">
           <Property Type="String" Name="name" Nullable="false" MaxLength="250" />
           <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
           <Property Type="String" Name="Hall" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="Revenue_Result">
+          <Property Type="DateTime" Name="date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="sum" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -938,7 +950,14 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Revenue" FunctionName="Хранилище Cinema_DataBaseModel.Revenue" />
+          <FunctionImportMapping FunctionImportName="Revenue" FunctionName="Хранилище Cinema_DataBaseModel.Revenue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Cinema_DataBaseModel.Revenue_Result">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="sum" ColumnName="sum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_dropdiagram" />
@@ -963,6 +982,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Cinema_DataBaseModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Cinema_DataBaseModel.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="TotalRevenue" FunctionName="Хранилище Cinema_DataBaseModel.TotalRevenue" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="Главное меню" Height="450" Width="800">
+        Title="Главное меню" Height="600" Width="600">
     <Grid>
-        <Menu HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Margin="3" Padding="3">
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/bg.png"/>
+        </Grid.Background>
+        <Menu HorizontalAlignment="Center" BorderBrush="Gray" BorderThickness="1" VerticalAlignment="Top" FontSize="14" Margin="3" Padding="3">
             <MenuItem Header="Просмотр">
                 <MenuItem Header="Кинотеатр"    Click="OpenViewCinema"/>
                 <MenuItem Header="Клиенты"      Click="OpenViewClient"/>

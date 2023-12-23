@@ -142,23 +142,11 @@
     <Compile Include="Film.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Request\FilmSessionHall.xaml.cs">
-      <DependentUpon>FilmSessionHall.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Request\FilmSessions.xaml.cs">
-      <DependentUpon>FilmSessions.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Film_Sessions_Result.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Film_Session_Hall.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Request\FullSession.xaml.cs">
-      <DependentUpon>FullSession.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Request\FullTicket.xaml.cs">
-      <DependentUpon>FullTicket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Full_Session.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
@@ -166,7 +154,6 @@
     <Compile Include="Full_Ticket.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="General_Func.cs" />
     <Compile Include="Hall.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
@@ -185,8 +172,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Request\FilmSessionHall.xaml.cs">
+      <DependentUpon>FilmSessionHall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FilmSessions.xaml.cs">
+      <DependentUpon>FilmSessions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FullSession.xaml.cs">
+      <DependentUpon>FullSession.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Request\FullTicket.xaml.cs">
+      <DependentUpon>FullTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="General_Func.cs" />
     <Compile Include="Request\Revenue.xaml.cs">
       <DependentUpon>Revenue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Revenue_Result.cs">
+      <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Session.cs">
       <DependentUpon>Model_Cinema_DataBase.tt</DependentUpon>
@@ -398,6 +401,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="bg.png" />
     <Content Include="Model_Cinema_DataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model_Cinema_DataBase.edmx</DependentUpon>
