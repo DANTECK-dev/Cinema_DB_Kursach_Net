@@ -51,8 +51,19 @@
         <TextBox Name="Duration_TB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
 
         <Label Content="Зал:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
-        <ComboBox Name="Hall_CB" DisplayMemberPath="name" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Hall_CB_DropDownClosed"/>
-
+        <ComboBox Name="Hall_CB" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Hall_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=Cinema.id}" />
+                        <TextBlock Width="100" Text="{Binding Path=Cinema.name}" />
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="100" Text="{Binding Path=name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    
         <Label Content="Фильм:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
         <ComboBox Name="Film_CB" DisplayMemberPath="name" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Film_CB_DropDownClosed"/>
 

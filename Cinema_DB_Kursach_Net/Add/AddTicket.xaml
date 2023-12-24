@@ -17,12 +17,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="70"/>
         </Grid.ColumnDefinitions>
 
         <Label Content="Добавление билета" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" 
@@ -34,16 +32,23 @@
         <Label Content="Статус:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
         <Label Name="Status_L" FontWeight="Bold" Content="" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
 
-        <Label Content="Фильм:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
-        <ComboBox Name="Film_CB" SelectedValuePath="id" DisplayMemberPath="name" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Film_CB_DropDownClosed"/>
-        <Button Name="Clear_Film_B" Content="Очистить" Grid.Row="4" Grid.Column="2" Margin="5" Click="Clear_Film_B_Click"/>
+        <Label Content="Сеанс:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+        <ComboBox Name="Session_CB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Session_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="130" Text="{Binding Path=date}" />
+                        <TextBlock Width="50" Text="{Binding Path=duration}" />
+                        <TextBlock Text="{Binding Path=Film.name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        <Label Content="Сеанс:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
-        <ComboBox Name="Session_CB" SelectedValuePath="id" DisplayMemberPath="date" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Session_CB_DropDownClosed"/>
-        <Button Name="Clear_Session_B" Content="Очистить" Grid.Row="5" Grid.Column="2" Margin="5" Click="Clear_Session_B_Click"/>
-
-        <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
-        <ComboBox Name="Client_CB" SelectedValuePath="id" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
+        <Button Name="Client_Session_B" Content="X" Grid.Row="5" Width="20" Height="20" HorizontalAlignment="Right" Grid.Column="2" Click="Client_Clear_Button_Click"/>
+        <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+        <ComboBox Name="Client_CB" SelectedValuePath="id" Margin="0,0,20,0" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

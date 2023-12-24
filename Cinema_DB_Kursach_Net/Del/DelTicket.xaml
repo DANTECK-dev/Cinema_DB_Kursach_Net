@@ -27,19 +27,28 @@
         <Label Content="Удаление билета" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
 
         <Label Content="ID:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-        <ComboBox Name="ID_CB" DisplayMemberPath="id" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="ID_CB_DropDownClosed"/>
+        <ComboBox Name="ID_CB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="ID_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="100" Text="{Binding Path=price}" />
+                        <TextBlock Width="150" Text="{Binding Path=Session.date}" />
+                        <TextBlock Width="100" Text="{Binding Path=Session.Film.name}" />
+                        <TextBlock Width="50" Text="{Binding Path=Session.Hall.name}" />
+                        <TextBlock Width="100" Text="{Binding Path=Session.Hall.Cinema.name}" />
+                        <TextBlock Width="100" Text="{Binding Path=Client.name}" />
+                        <TextBlock Width="100" Text="{Binding Path=Client.surname}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <Label Content="Стоимость:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="Price_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
 
         <Label Content="Статус:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
         <TextBox Name="Status_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
-
-        <Label Content="Сеанс:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
-        <TextBox Name="Session_TB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
-
-        <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
-        <TextBox Name="Client_TB" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
 
         <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
                 VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>

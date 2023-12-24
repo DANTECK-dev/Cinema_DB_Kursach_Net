@@ -25,7 +25,7 @@ namespace Cinema_DB_Kursach_Net
         {
             InitializeComponent();
             _entities = entities;
-            Name_CB.ItemsSource = _entities.Films.ToList();
+            Name_CB.ItemsSource = _entities.Halls.ToList();
             Cinema_CB.ItemsSource = _entities.Cinemas.ToList();
         }
         private void Change(object sender = null, TextChangedEventArgs e = null)

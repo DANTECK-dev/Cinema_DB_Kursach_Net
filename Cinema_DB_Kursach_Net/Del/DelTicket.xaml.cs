@@ -39,8 +39,6 @@ namespace Cinema_DB_Kursach_Net
                 ID_CB.SelectedItem = null;
                 Price_TB.Text = "";
                 Status_TB.Text = "";
-                Session_TB.Text = "";
-                Client_TB.Text = "";
 
                 Status.Content = "Запись успешно удалена";        // выводим текст об успешном выполнении запроса
                 ID_CB.ItemsSource = _entities.Tickets.ToList();      // обновляем список клиентов
@@ -60,8 +58,6 @@ namespace Cinema_DB_Kursach_Net
             // обновляем данные в полях если выбран другой пользователь
             Price_TB.Text = ((Ticket)(ID_CB.SelectedItem)).price.ToString();
             Status_TB.Text = ((Ticket)(ID_CB.SelectedItem)).status.ToString();
-            Session_TB.Text = ((Ticket)(ID_CB.SelectedItem)).Session.date.ToString();
-            Client_TB.Text = ((Ticket)(ID_CB.SelectedItem)).Client.name;
         }
     }
 }

@@ -31,8 +31,10 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="50" Text="{Binding Path=name}" />
-                        <TextBlock Width="50" Text="{Binding Path=surname}" />
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="100" Text="{Binding Path=name}" />
+                        <TextBlock Width="100" Text="{Binding Path=surname}" />
+                        <TextBlock Width="100" Text="{Binding Path=Cinema.name}" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

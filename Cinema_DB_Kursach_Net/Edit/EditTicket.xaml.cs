@@ -26,6 +26,7 @@ namespace Cinema_DB_Kursach_Net
         {
             InitializeComponent();
             _entities = entities;
+            Name_CB.ItemsSource = _entities.Tickets.ToList();
             Session_CB.ItemsSource = _entities.Sessions.ToList();
             Client_CB.ItemsSource = _entities.Clients.ToList();
         }
@@ -45,8 +46,10 @@ namespace Cinema_DB_Kursach_Net
                 _entities.Tickets.Find(table.id).price = int.Parse(Price_TB.Text);
                 _entities.Tickets.Find(table.id).status = Status_L.Content as string;
                 _entities.Tickets.Find(table.id).id_session = selected_session;
-                if (selected_client == 0) _entities.Tickets.Find(table.id).id_client = null;
-                else _entities.Tickets.Find(table.id).id_client = selected_client;
+                if (selected_client == -1) 
+                    _entities.Tickets.Find(table.id).id_client = null;
+                else 
+                    _entities.Tickets.Find(table.id).id_client = selected_client;
 
                 _entities.SaveChanges();         // сохраняем изменения в БД
                 Status.Content = "Запись успешно измененна";        // выводим текст об успешном выполнении запроса
@@ -67,6 +70,8 @@ namespace Cinema_DB_Kursach_Net
             Status_L.Content = ((Ticket)(Name_CB.SelectedItem)).status;
             Session_CB.SelectedItem = ((Ticket)(Name_CB.SelectedItem)).Session;
             Client_CB.SelectedItem = ((Ticket)(Name_CB.SelectedItem)).Client;
+            selected_client = ((Client)Client_CB.SelectedItem).id;
+            selected_session = ((Session)Session_CB.SelectedItem).id;
         }
         private void Client_CB_DropDownClosed(object sender, EventArgs e)
         {
@@ -85,5 +90,13 @@ namespace Cinema_DB_Kursach_Net
             selected_session = ((Session)Session_CB.SelectedItem).id;
         }
 
+        private void Client_Clear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Change();
+            Client_CB.SelectedItem = null;
+            Client_CB.SelectedIndex = -1;
+            selected_client = -1;
+            Status_L.Content = "свободно";
+        }
     }
 }

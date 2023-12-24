@@ -27,7 +27,19 @@
         <Label Content="Удаление сеанса" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
 
         <Label Content="Дата и время начала:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-        <ComboBox Name="Date_CB" DataContext="name" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Film_CB_DropDownClosed"/>
+        <ComboBox Name="Date_CB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Film_CB_DropDownClosed">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding Path=id}" />
+                        <TextBlock Width="150" Text="{Binding Path=date}" />
+                        <TextBlock Width="150" Text="{Binding Path=Film.name}" />
+                        <TextBlock Width="50" Text="{Binding Path=Hall.name}" />
+                        <TextBlock Width="100" Text="{Binding Path=Hall.Cinema.name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         
         <Label Content="ID:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="ID_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>

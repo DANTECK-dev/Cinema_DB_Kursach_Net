@@ -33,8 +33,9 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="50" Text="{Binding Path=id}" />
-                        <TextBlock Width="100" Text="{Binding Path=film_name}" />
-                        <TextBlock Width="100" Text="{Binding Path=date}" />
+                        <TextBlock Width="50" Text="{Binding Path=price}" />
+                        <TextBlock Width="100" Text="{Binding Path=Session.Film.name}" />
+                        <TextBlock Width="100" Text="{Binding Path=Session.date}" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -53,7 +54,7 @@
         <ComboBox Name="Session_CB" SelectedValuePath="id" DisplayMemberPath="date" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Session_CB_DropDownClosed"/>
 
         <Label Content="Клиент:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"/>
-        <ComboBox Name="Client_CB" SelectedValuePath="id" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
+        <ComboBox Name="Client_CB" Margin="0,0,20,0" SelectedValuePath="id" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Client_CB_DropDownClosed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -64,6 +65,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Button Content="X" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Height="20" Width="20" Click="Client_Clear_Button_Click"/>
 
         <Label Name="Status" Content="" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" 
                    VerticalAlignment="Center" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"/>

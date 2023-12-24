@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="FilmSessions" Height="450" Width="1360">
+        Title="FilmSessions" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Название фильма"    Margin="0,0,20,0" Grid.Column="0"     VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
+            <Label Name="Sessions_L"            Margin="0,0,20,0" Grid.Column="2"     VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
+
+            <ComboBox Name="MovieName_CB"       Margin="0" Grid.Row="1" Grid.Column="1"   VerticalAlignment="Center" DropDownClosed="MovieName_CB_DropDownClosed"/>
+
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True" Name="_DataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название фильма"    Width="2*"    Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Дата и время"       Width="1.5*"  Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Название зала"      Width="1.5*"  Binding="{Binding Hall}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
