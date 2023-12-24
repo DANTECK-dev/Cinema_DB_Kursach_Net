@@ -5,8 +5,129 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema_DB_Kursach_Net"
         mc:Ignorable="d"
-        Title="FullTicket" Height="450" Width="800">
+        Title="FullTicket" Height="450" Width="1360">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"    />
+                <!-- cinema_name -->
+                <ColumnDefinition Width="2*"    />
+                <!-- address -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- cinema_contact -->
+                <ColumnDefinition Width="2*"    />
+                <!-- film_name -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- genre -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- country -->
+                <ColumnDefinition Width="1*"    />
+                <!-- age_rating -->
+                <ColumnDefinition Width="1*"    />
+                <!-- capacity -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- type -->
+                <ColumnDefinition Width="2*"    />
+                <!-- hall_name -->
+                <ColumnDefinition Width="1*"    />
+                <!-- duration -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- date -->
+                <ColumnDefinition Width="1*"    />
+                <!-- price -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- status -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- client_name -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- client_surname -->
+                <ColumnDefinition Width="1.5*"  />
+                <!-- client_contact -->
+
+            </Grid.ColumnDefinitions>
+
+            <Button Content="X" Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Cinema_Name_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Address_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Cinema_Contact_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Film_Name_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Genre_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Country_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="6" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Age_Rating_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Capacity_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Type_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="9" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Hall_Name_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Duration_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="11" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Date_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="12" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Price_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="13" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Status_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Client_Name_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="15" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Client_Surname_Clear_Button_Click"/>
+            <Button Content="X" Grid.Row="0" Grid.Column="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="20" Click="Client_Contact_Clear_Button_Click"/>
+
+            <Label Content="Название кинотеатра"     Margin="0,0,20,0" Grid.Column="0" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Адрес"                   Margin="0,0,20,0" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Контакт кинотеатра"      Margin="0,0,20,0" Grid.Column="2" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Название фильма"         Margin="0,0,20,0" Grid.Column="3" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Жанр"                    Margin="0,0,20,0" Grid.Column="4" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Страна"                  Margin="0,0,20,0" Grid.Column="5" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Возрастной рейтинг"      Margin="0,0,20,0" Grid.Column="6" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Вместимость"             Margin="0,0,20,0" Grid.Column="7" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Тип"                     Margin="0,0,20,0" Grid.Column="8" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Название зала"           Margin="0,0,20,0" Grid.Column="9" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Продолжительность"       Margin="0,0,20,0" Grid.Column="10" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Дата"                    Margin="0,0,20,0" Grid.Column="11" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Цена"                    Margin="0,0,20,0" Grid.Column="12" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Статус"                  Margin="0,0,20,0" Grid.Column="13" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Имя клиента"             Margin="0,0,20,0" Grid.Column="14" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Фамилия клиента"         Margin="0,0,20,0" Grid.Column="15" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="Контакт клиента"         Margin="0,0,20,0" Grid.Column="16" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+            <ComboBox Name="Cinema_Name_CB"         Margin="0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" DropDownClosed="Cinema_Name_CB_DropDownClosed"/>
+            <ComboBox Name="Address_CB"             Margin="0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Address_CB_DropDownClosed"/>
+            <ComboBox Name="Cinema_Contact_CB"      Margin="0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" DropDownClosed="Cinema_Contact_CB_DropDownClosed"/>
+            <ComboBox Name="Film_Name_CB"           Margin="0" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" DropDownClosed="Film_Name_CB_DropDownClosed"/>
+            <ComboBox Name="Genre_CB"               Margin="0" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" DropDownClosed="Genre_CB_DropDownClosed"/>
+            <ComboBox Name="Country_CB"             Margin="0" Grid.Row="1" Grid.Column="5" VerticalAlignment="Center" DropDownClosed="Country_CB_DropDownClosed"/>
+            <ComboBox Name="Age_Rating_CB"          Margin="0" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" DropDownClosed="Age_Rating_CB_DropDownClosed"/>
+            <ComboBox Name="Capacity_CB"            Margin="0" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" DropDownClosed="Capacity_CB_DropDownClosed"/>
+            <ComboBox Name="Type_CB"                Margin="0" Grid.Row="1" Grid.Column="8" VerticalAlignment="Center" DropDownClosed="Type_CB_DropDownClosed"/>
+            <ComboBox Name="Hall_Name_CB"           Margin="0" Grid.Row="1" Grid.Column="9" VerticalAlignment="Center" DropDownClosed="Hall_Name_CB_DropDownClosed"/>
+            <ComboBox Name="Duration_CB"            Margin="0" Grid.Row="1" Grid.Column="10" VerticalAlignment="Center" DropDownClosed="Duration_CB_DropDownClosed"/>
+            <ComboBox Name="Date_CB"                Margin="0" Grid.Row="1" Grid.Column="11" VerticalAlignment="Center" DropDownClosed="Date_CB_DropDownClosed"/>
+            <ComboBox Name="Price_CB"               Margin="0" Grid.Row="1" Grid.Column="12" VerticalAlignment="Center" DropDownClosed="Price_CB_DropDownClosed"/>
+            <ComboBox Name="Status_CB"              Margin="0" Grid.Row="1" Grid.Column="13" VerticalAlignment="Center" DropDownClosed="Status_CB_DropDownClosed"/>
+            <ComboBox Name="Client_Name_CB"         Margin="0" Grid.Row="1" Grid.Column="14" VerticalAlignment="Center" DropDownClosed="Client_Name_CB_DropDownClosed"/>
+            <ComboBox Name="Client_Surname_CB"      Margin="0" Grid.Row="1" Grid.Column="15" VerticalAlignment="Center" DropDownClosed="Client_Surname_CB_DropDownClosed"/>
+            <ComboBox Name="Client_Contact_CB"      Margin="0" Grid.Row="1" Grid.Column="16" VerticalAlignment="Center" DropDownClosed="Client_Contact_CB_DropDownClosed"/>
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True" Name="_DataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название фильма"        Width="3*"    Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Жанр"                   Width="1.5*"  Binding="{Binding genre}"/>
+                <DataGridTextColumn Header="Страна производитель"   Width="1.5*"  Binding="{Binding country}"/>
+                <DataGridTextColumn Header="Возрастные ограничения" Width="1*"    Binding="{Binding age_rating}"/>
+                <DataGridTextColumn Header="Длительность"           Width="1*"    Binding="{Binding duration}"/>
+                <DataGridTextColumn Header="Дата и время"           Width="2*"    Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Название зала"          Width="2*"    Binding="{Binding hall_name}"/>
+                <DataGridTextColumn Header="Тип зала"               Width="1*"    Binding="{Binding type}"/>
+                <DataGridTextColumn Header="Вместимость зала"       Width="1*"    Binding="{Binding capacity}"/>
+                <DataGridTextColumn Header="Название кинотеатра"    Width="2.5*"  Binding="{Binding cinema_name}"/>
+                <DataGridTextColumn Header="Адрес"                  Width="2*"    Binding="{Binding address}"/>
+                <DataGridTextColumn Header="Контакты"               Width="1*"    Binding="{Binding contact}"/>
+                <DataGridTextColumn Header="Стоимость"              Width="1*"    Binding="{Binding price}"/>
+                <DataGridTextColumn Header="Статус"                 Width="1.5*"  Binding="{Binding status}"/>
+                <DataGridTextColumn Header="Имя клиента"            Width="1.5*"  Binding="{Binding client_name}"/>
+                <DataGridTextColumn Header="Фамилия клиента"        Width="1.5*"  Binding="{Binding client_surname}"/>
+                <DataGridTextColumn Header="Контакты клиента"       Width="1.5*"  Binding="{Binding client_contact}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
