@@ -29,7 +29,7 @@
                Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold"/>
 
         <Label Content="Имя:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-        <xctk:MaskedTextBox Name="Name_TB" Mask="00\.00\.0000" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+        <TextBox Name="Name_TB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
 
         <Label Content="Фамилия:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
         <TextBox Name="Surname_TB" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
@@ -38,7 +38,7 @@
         <TextBox Name="Post_TB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
 
         <Label Content="Контакты:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
-        <xctk:MaskedTextBox Name="Contact_TB" Mask="+0 (000) 000-00-00" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
+        <xctk:MaskedTextBox Name="Contact_TB" Mask="000-0000" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" TextChanged="Change"/>
 
         <Label Content="Кинотеатр:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0"/>
         <ComboBox Name="Cinema_CB" DisplayMemberPath="name" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" DropDownClosed="Cinema_CB_DropDownClosed"/>
